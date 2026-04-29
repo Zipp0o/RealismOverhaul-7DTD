@@ -49,8 +49,3 @@ You found the only part of this mod that doesn't have a bug. To find the parts t
 
 
 
-
-Another joke for the curious:
-
--Why do survivors hate the Blood Moon?
-- Because their base turns into a “customer service counter” for angry undead complaints!
