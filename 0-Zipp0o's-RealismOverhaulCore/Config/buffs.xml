@@ -1,0 +1,49 @@
+<config>
+	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
+			<effect_group>
+			<!-- UI Opacity (ui_disable_dimming must be 0 if you want to use custom opacity) -->
+				<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="ui_disable_dimming" operation="set" value="0"/> <!-- Turn off UI dimming (1) -->
+				<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="ui_night_bg_opacity" operation="set" value="0.82"/> <!-- Custom background opacity -->
+				<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="ui_night_fg_opacity" operation="set" value="0.88"/>	<!-- Custom foreground opacity -->
+			<!-- Overlays -->	
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOverlay" target="self"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOverlay1" target="self"/>
+			</effect_group>
+	</append>
+<!--//-->
+	<append xpath="/buffs">	
+		<buff name="buffOverlay" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<update_rate value=".05"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity=".40" fade=".5" effect_name="FadeToBlack">
+					<requirement name="IsIndoors"/>
+					<requirement name="IsDay"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity=".10" fade=".5" effect_name="FadeToBlack">
+					<requirement name="!IsIndoors"/>
+					<requirement name="IsDay"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+<!--//-->		
+		<buff name="buffOverlay1" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<update_rate value=".05"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity=".35" fade="1" effect_name="FadeToBlack">
+					<requirement name="IsIndoors"/>
+					<requirement name="IsNight"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="FadeToBlack">
+					<requirement name="!IsIndoors"/>
+					<requirement name="IsNight"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+	</append>
+</config> 

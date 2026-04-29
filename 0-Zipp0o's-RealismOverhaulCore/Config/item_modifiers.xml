@@ -1,0 +1,27 @@
+<config> 
+ 	<set xpath="/item_modifiers/item_modifier[@name='modArmorNightVision']">
+		<effect_group tiered="false">
+			<requirement name="IsNight"/>
+			<requirement name="IsEquipped"/>
+			<triggered_effect trigger="onSelfItemActivate" action="ModifyScreenEffect" effect_name="NightVision" intensity="1.5" fade="0"/>
+			<triggered_effect trigger="onSelfItemActivate" action="ModifyScreenEffect" effect_name="Bright" intensity="0.7" fade=".7"/>
+			<triggered_effect trigger="onSelfItemDeactivate" action="ModifyScreenEffect" effect_name="NightVision" intensity="0" fade="0"/>
+			<triggered_effect trigger="onSelfItemDeactivate" action="ModifyScreenEffect" effect_name="Bright" intensity="0" fade="0"/>
+			<triggered_effect trigger="onSelfEquipStop" action="ModifyScreenEffect" effect_name="NightVision" intensity="0" fade="0"/>
+			<triggered_effect trigger="onSelfEquipStop" action="ModifyScreenEffect" effect_name="Bright" intensity="0" fade="0"/>
+			<triggered_effect trigger="onSelfItemActivate" action="PlaySound" silent_on_equip="true" target="self" sound="flashlight_toggle" play_in_head="false"/>
+			<triggered_effect trigger="onSelfItemDeactivate" action="PlaySound" silent_on_equip="true" target="self" sound="flashlight_toggle" play_in_head="false"/>
+		</effect_group>		
+		<effect_group tiered="false">
+			<requirement name="IsDay"/>
+			<requirement name="IsEquipped"/>
+			<triggered_effect trigger="onSelfItemActivate" action="ModifyScreenEffect" effect_name="NightVision" intensity="1.1" fade="0"/>
+			<triggered_effect trigger="onSelfItemActivate" action="ModifyScreenEffect" effect_name="Bright" intensity="0.35" fade=".7"/>
+			<triggered_effect trigger="onSelfItemDeactivate" action="ModifyScreenEffect" effect_name="NightVision" intensity="0" fade="0"/>
+			<triggered_effect trigger="onSelfItemDeactivate" action="ModifyScreenEffect" effect_name="Bright" intensity="0" fade="0"/>
+			<triggered_effect trigger="onSelfEquipStop" action="ModifyScreenEffect" effect_name="NightVision" intensity="0" fade="0"/>
+			<triggered_effect trigger="onSelfItemActivate" action="PlaySound" silent_on_equip="true" target="self" sound="flashlight_toggle" play_in_head="false"/>
+			<triggered_effect trigger="onSelfItemDeactivate" action="PlaySound" silent_on_equip="true" target="self" sound="flashlight_toggle" play_in_head="false"/>
+		</effect_group>
+	</set>
+</config>

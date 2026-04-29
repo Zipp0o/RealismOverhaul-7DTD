@@ -1,0 +1,5 @@
+<config>
+
+<set xpath="/xui/ruleset/@scale">1.1</set>
+
+</config>

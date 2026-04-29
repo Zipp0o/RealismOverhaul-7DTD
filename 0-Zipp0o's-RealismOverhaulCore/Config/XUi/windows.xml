@@ -1,0 +1,37 @@
+<config>
+
+	<remove xpath="/windows/window[@name='windowCompass']/sprite[@sprite=''][@color='255,255,255,255']" />
+	
+	<insertAfter xpath="/windows/window[@name='windowCompass']/texture[@name='compassTexture3']" >
+		<rect name="rect_compassStats" pos="0,-5">
+			<sprite name="sprite_compassStatsBackground" depth="0" pos="48,-39" width="390" height="29" type="sliced" fillcenter="true" color="0,0,0,165" sprite="ui_game_header_fill" />
+			<sprite name="sprite_compassStatsBackground" depth="0" pos="48,-70" width="390" height="29" type="sliced" fillcenter="true" color="0,0,0,165" sprite="ui_game_header_fill" />
+			<sprite name="sprite_compassStatsBackground" depth="0" pos="48,-101" width="390" height="29" type="sliced" fillcenter="true" color="0,0,0,165" sprite="ui_game_header_fill" />
+			<!-- <sprite name="sprite_compassStatsBackground" depth="0" pos="48,-132" width="390" height="29" type="sliced" fillcenter="true" color="0,0,0,165" sprite="ui_game_header_fill" /> -->
+			
+			<!-- <sprite name="sprite_compassClock" depth="2" pos="50,-40" size="28,28" sprite="ui_game_symbol_clock" color="*" foregroundlayer="true"/> -->
+			<label name="label_compassDayTime" depth="2" pos="90,-40" width="172" height="32" text=" [DECEA3]{time|always}[-]" font_size="29" effect="outline" />
+			
+			<rect name="rect_compassMapStats" pos="40,-40" width="400" height="32" controller="MapStats" anchor="CenterTop">		
+				<sprite name="sprite_compassTemp" depth="2" pos="129,-1" size="20,20" sprite="ui_game_symbol_temperature" color="*" foregroundlayer="true"/>
+				<label name="label_compassTempNew" depth="2" pos="148,-1" width="172" height="24" text="[{outsidetempcolor}]{outsidetemp}[-]" font_size="23" effect="outline" /> <!-- V2.5+ -->
+				<label name="label_compassTempOld" depth="2" pos="155,-1" width="172" height="24" text="[DECEA3]{maptemperature}[-]" font_size="23" effect="outline" /> <!-- V2.4 and older -->
+				
+				<sprite name="sprite_compassWind" depth="2" pos="208,-1" size="20,20" sprite="ui_game_symbol_wind" color="*" foregroundlayer="true"/>
+				<label name="label_compassWind" depth="2" pos="225,-1" width="172" height="24" text=" [DECEA3]{mapwind} Km/h[-]" font_size="23" effect="outline" />
+				
+				<sprite name="sprite_compassElevaytion" depth="2" pos="312,-1" size="20,20" sprite="ui_game_symbol_climb" color="*" foregroundlayer="true"/>
+				<label name="label_compassElevation" depth="2" pos="332,-1" width="172" height="24" text=" [DECEA3]{mapelevation} M[-]" font_size="23" effect="outline" />
+			</rect>
+			
+			<rect name="rect_compassSeason" pos="0,-80">
+				<sprite name="sprite_compassSeasonIcon" depth="2" pos="46,44" size="34,34" sprite="{rain}" color="{rainiconcolor}" foregroundlayer="true" />
+				<sprite name="sprite_compassSeasonIcon1" depth="2" pos="46,13" size="34,34" sprite="{snow}" color="{snowiconcolor}" foregroundlayer="true" />
+				<sprite name="sprite_compassSeasonIcon2" depth="2" pos="46,-18" size="34,34" sprite="{storm}" color="{stormiconcolor}" foregroundlayer="true" />
+				
+				<label name="label_compassWeekday" depth="2" pos="97,6" width="600" height="26" text="[{daycolor}]{dayofmonth}[-] • {monthshort}[DECEA3] ({fullmoondaysmonth})[-] • {yearnumber} • [{moonphasecolor}]{moonphasename}[-]" font_size="26" effect="outline" wrap="false" />	
+				<label name="label_compassSeason" depth="2" pos="97,-24" width="320" height="26" text="({season}) • Day:  {dayofyear} of {daysperyear}[-] • {weekdayshort}" font_size="25" effect="outline" wrap="false" />
+			</rect>
+		</rect>
+	</insertAfter>
+</config>
